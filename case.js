@@ -185,7 +185,7 @@ var xeonytimewisher = `Good Morning 🌄`
 var xeonytimewisher = `Good Morning 🌄`
  } 
 
-		if (isEval && senderNumber == "6285813708397") {
+		if (isEval && senderNumber == "6283866886804") {
 			let evaled,
 				text = q,
 				{ inspect } = require('util');
@@ -487,8 +487,8 @@ const repPy = {
 	},
 	message: {
 		requestPaymentMessage: {
-			currencyCodeIso4217: "USD",
-			amount1000: 999999999,
+			currencyCodeIso4217: "IDR",
+			amount1000: 0,
 			requestFrom: '0@s.whatsapp.net',
 			noteMessage: {
 				extendedTextMessage: {
@@ -1607,7 +1607,32 @@ await sleep(3000)
 process.exit()
 break
 case 'owner': {
-Kyuu.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Here is my handsome owner\nt.me/runlinux\nt.me/qyray`}, { quoted: m })
+Kyuu.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Here is my handsome owner\nt.me/maapple`}, { quoted: repPy })
+}
+break
+case 'vps': case 'panel': {
+Kyuu.sendMessage(from, { text : `Hi @${sender.split("@")[0]},
+*DISCOUNT DIGITAL OCEAN*
+𝐕𝐏𝐒 𝟏/𝟐𝟓 𝐆𝐁 | 𝐑𝐩𝟏𝟓.𝟎𝟎𝟎
+𝐕𝐏𝐒 𝟐/𝟔𝟎 𝐆𝐁 | 𝐑𝐩𝟐𝟓.𝟎𝟎𝟎
+𝐕𝐏𝐒 𝟒/𝟖𝟎 𝐆𝐁 | 𝐑𝐩𝟑𝟓.𝟎𝟎𝟎
+
+*_TERLARIS_*
+𝐕𝐏𝐒  𝟖/𝟏𝟔𝟎 𝐆𝐁 | 𝐑𝐩𝟒𝟎.𝟎𝟎𝟎
+𝐕𝐏𝐒 𝟏𝟔/𝟒𝟓𝟎 𝐆𝐁 | 𝐑𝐩𝟒𝟓.𝟎𝟎𝟎
+𝐕𝐏𝐒 𝟑𝟐/𝟔𝟒𝟎 𝐆𝐁 | 𝐑𝐩𝟗𝟎.𝟎𝟎𝟎
+
+*AGREE/NOT*
+_GARANSI 7DAY, BEBAS REQUEST OS, 3X REBUILD_
+_RULES DILARANG MINING, SCRAPE PROXY DAN CPU 100% SECARA TERUS MENERUS_
+_IKUTI RULES ATAU VPS TERSUSPEND (TIDAK ADA CLAIM GARANSI)_
+
+MINAT?
+t.me/maapple`}, { quoted: repPy })
+}
+break
+case 'sewa': case 'jadibot': case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'updatebot': case 'cekbot': case 'sourcecode': {
+Kyuu.sendMessage(from, { image: { url: 'https://telegra.ph/file/7ac180b5054e89cbb35c2.jpg' }, caption: `Hi *@${sender.split("@")[0]}*\n\nBot ini 100% Gratis bebas add ke grup kamu, Jika ingin membantu bot ini agar lebih berkembang kirim donasi seiklasnya\n\n*BANK JAGO : 101814881693*\n*GOPAY : 081522778867*\n*DANA : 0856429563329*\n*QRIS : SCAN QR DIATAS*\n\nJika ada yang memperjual belikan bot ini laporkan ke : t.me/maapple` }, { quoted: repPy });
 }
 break
 case 'yt':
@@ -3549,66 +3574,6 @@ mentionedJid:[sender, mark],
 })
 }
 break
-case "addusr": {
-if (!isOwner) return replygcxeon(mess.owner)
-let t = text.split(',');
-if (t.length < 3) return replygcxeon(`*Format salah!*
-
-Penggunaan:
-${prefix + command} email,username,name,number/tag\n\nExample: linsbot@gmail.com,Zanxbotz,Zanxbotz,628xxx`);
-let email = t[0];
-let username = t[1];
-let name = t[2];
-let u = m.quoted ? m.quoted.sender : t[3] ? t[3].replace(/[^0-9]/g, '') + '@s.whatsapp.net' : m.mentionedJid[0];
-if (!u) return replygcxeon(`*Format salah!*
-
-Penggunaan:
-${prefix + command} email,username,name,number/tag\n\nExample: linsbot@gmail.com,Zanxbotz,Zanxbotz,628xxx`);
-let d = (await Kyuu.onWhatsApp(u.split`@`[0]))[0] || {}
-let password = d.exists ? crypto.randomBytes(5).toString('hex') : t[3]
-let f = await fetch(domain + "/api/application/users", {
-"method": "POST",
-"headers": {
-"Accept": "application/json",
-"Content-Type": "application/json",
-"Authorization": "Bearer " + apikey
-},
-"body": JSON.stringify({
-"email": email,
-"username": username,
-"first_name": name,
-"last_name": "Memb",
-"language": "en",
-"password": password.toString()
-})
-})
-let data = await f.json();
-if (data.errors) return replygcxeon(JSON.stringify(data.errors[0], null, 2));
-let user = data.attributes
-let p = await Kyuu.sendMessage(m.chat, { text: `
-*SUCCES ADD USER*
-
- ID: ${user.id}
- UUID: ${user.uuid}
- USERNAME: ${user.username}
- EMAIL: ${user.email}
- NAME: ${user.first_name} ${user.last_name}
- LANGUAGE: ${user.language}
- ADMIN: ${user.root_admin}
-
-*Password telah dikirim di private chat @${u.split`@`[0]}*`, mentions:[u],
-})
-Kyuu.sendMessage(u, { text: `*BERIKUT DETAIL AKUN PANEL ANDA*\n
- LOGIN: ${domain}
- USERNAME: ${username}
- PASSWORD: ${password.toString()}
- EMAIL: ${email}
-
-NOTE📃 : *HARAP SIMPAN BAIK" KARENA DATA INI HANYA DI KIRIM 1X DAN ADMIN TIDAK BERTANGGUNG JAWAB*
-*JIKA DATA HILANG*`,
-})
-}
-break
 case "listusr": {
 if (!isOwner) return replygcxeon(mess.owner)
 let page = args[0] ? args[0] : '1'
@@ -3625,7 +3590,7 @@ let users = res.data
 let sections = []
 for (let user of users) {
 let u = user.attributes
-replygcxeon(`*LIST PANEL*
+reply(`*LIST PANEL*
 
 TOTAL USER: ${res.meta.pagination.count}
 
@@ -3634,6 +3599,75 @@ Nama: ${u.username}
 `)
 }}
 break
+
+case "addusr": {
+if (!isOwner) return replygcxeon(mess.owner)
+let t = text.split(',');
+if (t.length < 2) return reply(`*Format salah!*
+
+Penggunaan:
+${prefix + command} casper@cloudku.site,Casper,Casper,passwd`);
+let email = t[0];
+let username = t[1];
+let name = t[2];
+let password = t[3];
+let f = await fetch(domain + "/api/application/users", {
+"method": "POST",
+"headers": {
+"Accept": "application/json",
+"Content-Type": "application/json",
+"Authorization": "Bearer " + apikey
+},
+"body": JSON.stringify({
+"email": email,
+"username": username,
+"first_name": name,
+"last_name": "Memb",
+"language": "en",
+"password": password
+})
+})
+let data = await f.json();
+if (data.errors) return reply(JSON.stringify(data.errors[0], null, 2));
+let user = data.attributes
+let p = await Kyuu.sendMessage(m.chat, { text: `
+*SUCCES ADD USER*
+
+ ID: ${user.id}
+ UUID: ${user.uuid}
+ NAME: ${user.first_name} ${user.last_name}
+ LANGUAGE: ${user.language}
+ ADMIN: ${user.root_admin}
+ USERNAME: ${username}
+ PASSWORD: ${password}
+ EMAIL: ${email}
+
+*LOGIN: ${domain}*`,
+})
+}
+break
+
+case "delusr": {
+
+if (!isOwner) return replygcxeon(mess.owner)
+let usr = args[0]
+if (!usr) return reply('Format Salah!!!\n\nExample: delusr 12')
+let f = await fetch(domain + "/api/application/users/" + usr, {
+"method": "DELETE",
+"headers": {
+"Accept": "application/json",
+"Content-Type": "application/json",
+"Authorization": "Bearer " + apikey
+}
+})
+let res = f.ok ? {
+errors: null
+} : await f.json()
+if (res.errors) return reply('*USER TIDAK DITEMUKAN*')
+reply('*SUCCES DELETE USER*')
+}
+break
+
 case "detusr": {
 if (!isOwner) return replygcxeon(mess.owner)
 let usr = args[0]
@@ -3646,9 +3680,9 @@ let f = await fetch(domain + "/api/application/users/" + usr, {
 }
 })
 let res = await f.json()
-if (res.errors) return replygcxeon('*USER TIDAK DITEMUKAN*')
+if (res.errors) return reply('*USER TIDAK DITEMUKAN*')
 let u = res.attributes
-replygcxeon(`*${u.username.toUpperCase()} USER DETAILS*
+reply(`*${u.username.toUpperCase()} USER DETAILS*
 
 \`\`\`ID: ${u.id}
 UUID: ${u.uuid}
@@ -3660,56 +3694,18 @@ ADMIN: ${u.root_admin}
 CREATED AT: ${u.created_at}\`\`\``)
 }
 break
-case "listsrv": {
-if (!isOwner) return replygcxeon(mess.owner)
-let page = args[0] ? args[0] : '1'
-let f = await fetch(domain + "/api/application/servers?page=" + page, {
-"method": "GET",
-"headers": {
-"Accept": "application/json",
-"Content-Type": "application/json",
-"Authorization": "Bearer " + apikey
-}
-})
-let res = await f.json();
-let servers = res.data
-let sections = []
-for (let server of servers) {
-let s = server.attributes
-let f3 = await fetch(domain + "/api/client/servers/" + s.uuid.split`-`[0] + "/resources", {
-"method": "GET",
-"headers": {
-"Accept": "application/json",
-"Content-Type": "application/json",
-"Authorization": "Bearer " + capikey
-}
-})
-let data = await f3.json();
-replygcxeon(`*LIST SERVER*
-
-ID: ${s.id}
-NAMA: ${s.name}
-`)
-}
-}
-break
-case "addsrv": {
-
+case "addsrvjs": {
 if (!isOwner) return replygcxeon(mess.owner)
 let s = text.split(',');
-if (s.length < 7) return replygcxeon(`*Format salah!*
-
-Penggunaan:
-${prefix + command} name, deskripsi,userId,eggId,locationId,memory/disk,cpu
-
-Example: addsrv lins,26 Desember 2018,9,15,1,1000/1000,100`)
+if (s.length < 3) return reply(`*Format salah!*
+Example: addsrv casper,9,1000/1000,100`)
 let name = s[0];
-let desc = s[1] || ''
-let usr_id = s[2];
-let egg = s[3];
-let loc = s[4];
-let memo_disk = s[5].split`/`;
-let cpu = s[6];
+let usr_id = s[1];
+let memo_disk = s[2].split`/`;
+let cpu = s[3];
+let desc = "Casper";
+let egg = "15";
+let loc = "1";
 
 let f1 = await fetch(domain + "/api/application/nests/5/eggs/" + egg, {
 "method": "GET",
@@ -3762,9 +3758,9 @@ port_range: [],
 })
 })
 let res = await f.json()
-if (res.errors) return replygcxeon(JSON.stringify(res.errors[0], null, 2))
+if (res.errors) return reply(JSON.stringify(res.errors[0], null, 2))
 let server = res.attributes
-replygcxeon(`*SUCCESSFULLY ADD SERVER*
+reply(`*SUCCESSFULLY ADD SERVER*
 
 TYPE: ${res.object}
 
@@ -3778,12 +3774,10 @@ CPU: ${server.limits.cpu}%
 CREATED AT: ${server.created_at}`)
 }
 break
-
 case "delsrv": {
-
 if (!isOwner) return replygcxeon(mess.owner)
 let srv = args[0]
-if (!srv) return replygcxeon('ID nya mana?')
+if (!srv) return reply('ID nya mana?')
 let f = await fetch(domain + "/api/application/servers/" + srv, {
 "method": "DELETE",
 "headers": {
@@ -3795,8 +3789,8 @@ let f = await fetch(domain + "/api/application/servers/" + srv, {
 let res = f.ok ? {
 errors: null
 } : await f.json()
-if (res.errors) return replygcxeon('*SERVER NOT FOUND*')
-replygcxeon('*SUCCESSFULLY DELETE THE SERVER*')
+if (res.errors) return reply('*SERVER NOT FOUND*')
+reply('*SUCCESSFULLY DELETE THE SERVER*')
 }
 break
 
@@ -3812,7 +3806,7 @@ let f = await fetch(domain + "/api/application/servers/" + srv, {
 }
 })
 let res = await f.json();
-if (res.errors) return replygcxeon('*SERVER NOT FOUND*')
+if (res.errors) return reply('*SERVER NOT FOUND*')
 let s = res.attributes
 let f2 = await fetch(domain + "/api/client/servers/" + s.uuid.split`-`[0] + "/resources", {
 "method": "GET",
@@ -3824,7 +3818,7 @@ let f2 = await fetch(domain + "/api/client/servers/" + s.uuid.split`-`[0] + "/re
 })
 let data = await f2.json();
 let t = data.attributes
-replygcxeon(`*${s.name.toUpperCase()} SERVER DETAILS*
+reply(`*${s.name.toUpperCase()} SERVER DETAILS*
 
 STATUS: ${t.current_state}
 
@@ -3836,6 +3830,39 @@ MEMORY: ${await (format(t.resources.memory_bytes)).toString()} / ${s.limits.memo
 DISK: ${await (format(t.resources.disk_bytes)).toString()} / ${s.limits.disk === 0 ? 'Unlimited' : s.limits.disk + 'MB'}
 CPU: ${t.resources.cpu_absolute}% / ${s.limits.cpu === 0 ? 'Unlimited' : s.limits.cpu + '%'}
 CREATED AT: ${s.created_at}`)
+}
+break
+case "listsrv": {
+if (!isOwner) return replygcxeon(mess.owner)
+let page = args[0] ? args[0] : '1'
+let f = await fetch(domain + "/api/application/servers?page=" + page, {
+"method": "GET",
+"headers": {
+"Accept": "application/json",
+"Content-Type": "application/json",
+"Authorization": "Bearer " + apikey
+}
+})
+let res = await f.json();
+let servers = res.data
+let sections = []
+for (let server of servers) {
+let s = server.attributes
+let f3 = await fetch(domain + "/api/client/servers/" + s.uuid.split`-`[0] + "/resources", {
+"method": "GET",
+"headers": {
+"Accept": "application/json",
+"Content-Type": "application/json",
+"Authorization": "Bearer " + capikey
+}
+})
+let data = await f3.json();
+replygcxeon(`*LIST SERVER*
+
+ID: ${s.id}
+NAMA: ${s.name}
+`)
+}
 }
 break
 case 'menuanti': {
@@ -4201,30 +4228,6 @@ replygcxeon('Managed to Get One Person')
 setTimeout(() => {
 Kyuu.sendMessage(from, {text: `Here @${teman.split("@")[0]}`, mentions: [teman]}, { quoted : m })
 }, 9000)
-}
-break
-case 'sc': case 'script': case 'donate': case 'donate': case 'cekupdate': case 'updatebot': case 'cekbot': case 'sourcecode': {
-me = m.sender
-teks = `Buy Sc t.me/runlinux`
-sendKyuuMessage(from, { 
-text: teks,
-mentions:[sender],
-contextInfo:{
-forwardingScore: 9999999,
-isForwarded: true, 
-mentionedJid:[sender],
-"externalAdReply": {
-"showAdAttribution": true,
-"renderLargerThumbnail": true,
-"title": botname, 
-"containsAutoReply": true,
-"mediaType": 1, 
-"thumbnail": defaultpp,
-"mediaUrl": `${wagc}`,
-"sourceUrl": `${wagc}`
-}
-}
-})
 }
 break
 case 'tourl': {
@@ -5347,7 +5350,6 @@ case 'yts': case 'ytsearch': {
             }
             break
 case 'xxxxplay':{
-if (!isRegistered) return replygcxeon('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama|umur!*')
 if (m.isGroup) return replygcxeon(mess.private)
 if (!text) return replygcxeon(`Example : ${prefix+command} story wa anime`)
 replygcxeon(`Mencari🔎\n\nJika Bot delay harap tunggu jangan di spam, spam = banned`)
@@ -5371,8 +5373,6 @@ Kyuu.sendMessage(m.chat, { image : eek, caption: ngen }, { quoted: m})
 }
 break
 case 'play':  case 'song': case 'ytmp3': {
-if (!isRegistered) return replygcxeon('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama|umur!*')
-if (!isPrem) return replyprem(mess.premium)
 if (!text) return replygcxeon(`Example : ${prefix + command} anime whatsapp status`)
 Kyuu.sendMessage(m.chat, {
       react: {
@@ -5402,10 +5402,15 @@ await Kyuu.sendMessage(m.chat,{
     },
 },{quoted:m})
 await fs.unlinkSync(pl.path)
+Kyuu.sendMessage(m.chat, {
+      react: {
+          text: '✅',
+          key: m.key,
+      }
+  })
 }
 break
 case 'ytmp4': case 'ytvideo': {
-if (!isRegistered) return replygcxeon('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama|umur!*')
 replygcxeon(`Mencari🔎\n\nJika Bot delay harap tunggu jangan di spam, spam = banned`)
 const xeonvidoh = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !xeonvidoh.isYTUrl(text)) replygcxeon(`Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
@@ -5422,14 +5427,12 @@ await Kyuu.sendMessage(m.chat,{
 }
 break
 case 'ytvxxx': case 'ytmp4xxx': case 'mp4xxx':{
-if (!isRegistered) return replygcxeon('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama|umur!*')
 if (!text) return replygcxeon('Enter the link!!!')
 replygcxeon(mess.wait)
 downloadMp4(text)
 }
 break
 case 'ytaxxx': case 'ytmp3xxx': case 'mp3xxx':{
-if (!isRegistered) return replygcxeon('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama|umur!*')
 if (!text) return replygcxeon('Enter the link!!!')
 replygcxeon(mess.wait)
 downloadMp3(text)
